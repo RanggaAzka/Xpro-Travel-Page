@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+</head>
+<body>
+ 
+    <nav>
+        <div class="tulisan">
+            <h1>ExproTravel</h1>
+        </div>
+        <ul>
+            <i id="menu-close" class="fa-solid fa-circle-xmark"></i>
+            <li><a href="#1" class="menu">Beranda</a></li>
+            <li><a href="#2" class="menu">Tentang Kami</a></li>
+            <li><a href="#3" class="menu">Destinasi</a></li>
+            <li><a href="#4" class="menu">Testimoni</a></li>
+            <li><a href="#5" class="menu">Paket</a></li>
+        </ul>
+        <img id="menu-btn" src="foto/menu.png" alt="">
+    </nav>
+
+    <div id="1" class="hero">
+        <div class="hero-text">
+            <h1>Expro Travel</h1>
+            <p>Liburan terbaik bukanlah soal kemewahan, tetapi soal kebersamaan di tengah keluarga tercinta.</p>
+            <div class="hero-buttons">
+                <a href="#" class="leg2">PESAN SEKARANG</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="2" class="tentang-kami">
+        <div class="images">
+            <img src="foto/Raja-Ampat.jpg" alt="">
+        </div>
+        <div class="text-about">
+            <h2>Tentang Kami</h2>
+            <p>Kami adalah ExproTravel sebuah tim yang berdedikasi untuk
+                membantu Anda menjelajahi dunia dengan cara yang lebih mudah,
+                nyaman, dan berkesan. Dengan pengalaman bertahun-tahun di
+                industri travel, kami telah membantu ribuan pelancong 
+                menemukan destinasi impian mereka, mulai dari wisata
+                alam yang memukau hingga pengalaman budaya yang mendalam.
+                Kami percaya bahwa setiap perjalanan adalah kesempatan 
+                untuk menciptakan kenangan baru, dan itulah mengapa kami
+                memastikan setiap detail direncanakan dengan sempurna.
+                Kami memahami bahwa setiap pelancong memiliki gaya 
+                dan preferensi berbeda. Dengan pendekatan personal, 
+                kami memberikan solusi perjalanan yang sesuai dengan 
+                keinginan Anda. Komitmen kami adalah memberikan 
+                layanan terbaik, mulai dari proses perencanaan 
+                hingga Anda kembali dengan senyuman puas.
+            </p>
+            <a href="#klik" class="btn">More About US</a>
+        </div>
+    </div>
+    
+    <div id="3" class="swiper mySwiper">
+        <div class="judul">
+           <h2>Popular Wisata</h2>
+        </div>
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"> <img src="foto/jogja.webp" alt=""><h1>Yogyakarta</h1></div>
+          <div class="swiper-slide"> <img src="foto/mount-bromo-wallpapers-hd-wallpaper-preview.jpg" alt=""><h1>Bromo, Malang</h1></div>
+          <div class="swiper-slide"> <img src="foto/gwk2.jpg" alt=""><h1>Gwk, Bali</h1></div>
+          <div class="swiper-slide"> <img src="foto/pandawa2.jpg" alt=""><h1>Pantai Pandawa, Bali</h1></div>
+          <div class="swiper-slide"> <img src="foto/puncakb.jpg" alt=""><h1>Puncak, Bogor</h1></div>
+          <div class="swiper-slide"> <img src="foto/yazid-hasan-iJvx-VvTXc4-unsplash.jpg" alt=""><h1>Tangkuban Perahu, Bandung</h1></div>
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+
+    <div id="4" class="text-testimoni">
+        <h1>Testimoni Dari pelanggan kami </h1></div>
+         <div class="testimoni-container">
+             <div class="testimoni">
+                 <img src="foto/robert1.webp" alt="">
+                 <div class="testimoni-content">
+                     <p>"Terima kasih untuk Belitung Cantik, kerjasamanya bisa dibilang memuaskan. Liburan jadi nyaman dan aman. Semiga ke depan bisa pergi wisata ke Belitung lagi. Rekomen banget jalan2 di Belitung dengan Belitung Cantik."</p>
+                     <div class="rating">
+                         <i class="fas fa-star"></i>
+                         <i class="fas fa-star"></i>
+                         <i class="fas fa-star"></i>
+                         <i class="fas fa-star"></i>
+                         <i class="fas fa-star"></i>
+                     </div>
+                 </div>
+             </div>
+         
+             <div class="testimoni">
+                 <img src="foto/robert2.jpg" alt="">
+                 <div class="testimoni-content">
+                    <p>"Layanannya bervariasi dan bisa menyesuaikan kebutuhan pelanggan. Yang paling penting dalam proses layanannya sederhana, mudah dan respon yang cepat. Ini bentuk keramahtamahan yang original, khas belitung yg juga original. Keep up the good works.."</p>
+                     <div class="rating">
+                         <i class="fas fa-star"></i>
+                         <i class="fas fa-star"></i>
+                         <i class="fas fa-star"></i>
+                         <i class="fas fa-star"></i>
+                         <i class="fas fa-star-half-alt"></i>
+                     </div>
+                 </div>
+             </div>
+         
+             <div class="testimoni">
+                 <img src="foto/robert3.avif" alt="">
+                 <div class="testimoni-content">
+                    <p>"Dari awal nanya2 adminnya udh ramah bgt..respon jg cepat ... rental mobil matic utk 2 hari..mobil d antar ke hotel waktu yang tepat. Mobilnya jg oke..selama pemakaian ga ada penggantian. Saat mengembalikan travel belitung cantik jg siap ambil di tempat yg aku mau..tq ya travel belitung cantik"</p>
+                     <div class="rating">
+                         <i class="fas fa-star"></i>
+                         <i class="fas fa-star"></i>
+                         <i class="fas fa-star"></i>
+                         <i class="fas fa-star"></i>
+                         <i class="fas fa-star"></i>
+                     </div>
+                 </div>
+             </div>
+         
+             <div class="testimoni">
+                 <img src="foto/robet4.avif" alt="">
+                 <div class="testimoni-content">
+                    <p>"Thanks Belitung Cantik udah servis kita selama liburan di Belitung. Layanan yang bersahabat harga pantas dan pelayanan yang baik. Next time ke Belitung lagi, ga ragu deh pake jasa Belitung Cantik. Pertahankan yaa.."</p>
+                     <div class="rating">
+                         <i class="fas fa-star"></i>
+                         <i class="fas fa-star"></i>
+                         <i class="fas fa-star"></i>
+                         <i class="fas fa-star"></i>
+                         <i class="fas fa-star"></i>
+                     </div>
+                 </div>
+             </div>
+        </div>
+
+    <div id="5" class="container30">
+        <h1>Destinasi Wisata</h1>
+        <div class="destinasi">
+            <button onclick="showbudget()"><p>Paket Budget</p></button>
+            <button onclick="showstandar()"><p>Paket Standar</p></button>
+            <button onclick="showpremium()"><p>Paket Premium</p></button>
+        </div>
+    </div>
+   
+    <div class="paket">
+        <div class="kota">
+            <div id="budget" class="leg1">
+                <div class="foto">
+                </div>
+                <h3>Trip Jogja Nginep 2 Hari</h3>
+                <p>Harga 900.000</p>
+                <ul> 
+                    <li>Candi Prambanan</li>
+                    <li>Tebing Breksi</li> 
+                    <li>Hutan Pinus</li> 
+                    <li>HeHa Sky View</li>
+                </ul>    
+            </div>
+            <div id="budget2" class="leg1">
+                <div class="foto"></div>
+                <h3>Jogja 1 Hari</h3>
+                <p>Harga 480.000</p>
+                <ul>
+                    <li>Menikmati objek wisata lava tour</li>
+                    <li>menikmati objek wisata obelixx hills</li>
+                </ul>
+            </div>
+            <div id="budget3" class="leg1">
+                <div class="foto"></div>
+                <h3>Tour Jogja  3 Hari</h3>
+                <p>Harga 600.000</p>
+                <ul>
+                    <li>Mengunjungi bungker</li>
+                    <li>Mengunjungi Museum sisa harataku</li>
+                    <li>Mengunjungi candi plaosan</li>
+                </ul>
+            </div>
+            <div id="budget4" class="leg1">
+                <div class="foto"></div>
+                <h3>Paket Wisata Jogja </h3>
+                <p>Harga 560.000</p>
+                <ul>
+                    <li>Jelajah Wisata desa borobudur</li>
+                    <li>Mengunjungi bukit rhema</li>
+                </ul>
+            </div>
+            <div id="budget5" class="leg1">
+                <div class="foto">
+                </div>
+                <h3>Tour gunung bromo 1 Hari </h3>
+                <p>Harga 361.000</p>
+                <ul>
+                    <li>Menikmati tour 1 hari penuh menjelajahi bromo</li>
+                    <li>Jelajahi rute bromo dengan trekking ke spot iconik</li>
+                    <li>Mengunjungi kawah bromo</li>
+                </ul>
+            </div>
+            <div id="budget6" class="leg1">
+                <div class="foto">
+                </div>
+                <h3>Tour Gwk </h3>
+                <p>Harga 658.000</p>
+                <ul>
+                    <li>Mengunjungi GWK, Bali</li>
+                </ul>
+            </div>
+            <div id="standar" class="leg1 hidden">
+                <div class="foto"></div> 
+                <h3>tour Kuta 3 Hari 2 Malam</h3>
+                <p>1.050.000</p>
+                <ul>
+                    <li>Mengunjungi pantai kuta </li>
+                    <li>Mengunjungi </li>
+                </ul>
+                
+            </div>
+            <div id="standar2" class="leg1 hidden">
+                <div class="foto"></div> 
+                <h3>Tour bali 4 Hari 3 Malam</h3>
+                <p>Harga 1.200.000 </p>
+                <ul>
+                    <li>Mengunjungi pura ulun danu</li>
+                    <li>Mengunjungi pura tanah lot</li>
+                    <li>Mengunjungi water sport</li>
+                </ul>
+                
+            </div>
+            <div id="standar3" class="leg1 hidden">
+                <div class="foto"></div> 
+                <h3>Tour bali 4 Hari 3 Malam</h3>
+                <p>Harga 1.200.000 </p>
+                <ul>
+                    <li>Mengunjungi uluwatu </li>
+                    <li>Mengunjungi Jimbaran</li>
+                </ul>
+            </div>
+            <div id="standar4" class="leg1 hidden">
+                <div class="foto"></div> 
+                <h3>Tour Dieng 3 Hari 2 Malam</h3>
+                <p>Harga 1.800.000 </p>
+                <ul>
+                    <li>Telaga Menjer</li>
+                    <li>Kebun Teh Panama </li>
+                    <li>Curug Sikarim</li>
+                    <li>Khayangan Skyline</li>
+                    <li>Sigandul Vieuw</li>
+                </ul>
+                
+            </div>
+            <div id="standar5" class="leg1 hidden">
+                <div class="foto"></div> 
+                <h3>Tour Lombok 2 Hari 1 Malam</h3>
+                <p>Harga 1.550.000 </p>
+                <ul>
+                    <li>Gili Trawangan </li>
+                    <li>Desa Adat Sade </li>
+                    <li>Pantai Mandalika</li>
+                </ul>
+                
+            </div>
+            <div id="standar6" class="leg1 hidden">
+                <div class="foto"></div> 
+                <h3>Tour Danau Toba 3 Hari 2 Malam</h3>
+                <p>Harga 1.920.000 </p>
+                <ul>
+                    <li>Siantar</li>
+                    <li>Danau Toba</li>
+                    <li>Parapat</li>
+                    <li>City Tour Medan</li>
+                </ul>
+                
+            </div>
+            <div id="premium" class="leg1 hidden">
+                <div class="foto"></div>
+                <h3>Tour Raja Ampat 4 Hari 3 Malam</h3>
+                <p>Harga 8.200.000 </p>
+                <ul>
+                    <li>Kota Waisai</li>
+                    <li>Wayag</li>
+                    <li>Batu Wajah</li>
+                    <li>Teluk Kabui</li>
+                    <li>Kampung Serpelesi</li>
+                    <li>Batu Pensil</li>
+                    <li>Batu Lima</li>
+                </ul>
+                
+            </div>
+            <div id="premium2" class="leg1 hidden">
+                <div class="foto"></div>
+                <h3>Tour bali Lombok 10 Hari 9 Malam</h3>
+                <p>Harga 5.300.000 </p>
+                <ul>
+                    <li>Sam Poo Kong</li>
+                    <li>Bedugul</li>
+                    <li>Nusa Penida</li>
+                    <li>Pink Beach</li>
+                    <li>jimbaran</li>
+                </ul>
+                
+            </div>
+            <div id="premium3" class="leg1 hidden">
+                <div class="foto"></div>
+                <h3>Tour Puncak Bogor 4 Hari 3 Malam</h3>
+                <p>Harga 3.300.000 </p>
+                <ul>
+                    <li>Rainbow Slide Gunung Mas</li>
+                    <li>Jungle Water Park</li>
+                    <li>Cimory Dairyland</li>
+                    <li>Nicole s River Park</li>
+                </ul>
+                
+            </div>
+            <div id="premium4" class="leg1 hidden">
+                <div class="foto"></div>
+                <h3>Tour bali 4 Hari 3 Malam</h3>
+                <p>Harga 3.800.000 </p>
+                <ul>
+                    <li></li>
+                    <li>Mengunjungi pura tanah lot</li>
+                    <li>Mengunjungi water sport</li>
+                </ul>
+                
+            </div>                       
+            <div id="premium5" class="leg1 hidden">
+                <div class="foto"></div>
+                <h3>Tour bali 4 Hari 3 Malam</h3>
+                <p>Harga 4.500.000 </p>
+                <ul>
+                    <li>Mengunjungi pura ulun danu</li>
+                    <li>Mengunjungi pura tanah lot</li>
+                    <li>Mengunjungi water sport</li>
+                </ul>
+                
+            </div>                 
+            <div id="premium6" class="leg1 hidden">
+                <div class="foto"></div>
+                <h3>Tour bali 4 Hari 3 Malam</h3>
+                <p>Harga 3.600.000 </p>
+                <ul>
+                    <li>Mengunjungi pura ulun danu</li>
+                    <li>Mengunjungi pura tanah lot</li>
+                    <li>Mengunjungi water sport</li>
+                </ul>
+                
+            </div>
+        </div>    
+    </div>
+    <!-- <div class="regist">
+        <div class="form">
+            <h3>Pesan Sekarang</h3>
+            <input type="text" placeholder="name" required>
+            <input type="email" placeholder="email-id" required>
+            <input type="pesan" placeholder="Pesan" required>
+
+            <div class="btn">
+                <a href="#" class="button">Hubungi Kami</a>
+            </div>
+        </div>
+    </div> -->
+
+    <div class="regist">
+        <!-- <div class="regis">
+          <p><i>Get 100 Online Courses For Free</i></p><br>
+          <h1><b>Registration To Get It</b></h1>
+        <div class="waktu">
+          <div><b>18 <br>days</b></div>
+          <div><b>23 <br>Hours</b></div>
+          <div><b>06 <br>Minutes</b></div>
+          <div><b>58 <br>Seconds</b></div>
+        </div>
+        </div> -->
+        <div class="form">
+          <h3>Create Free Account NOW!</h3>
+    
+        <input type="text" placeholder="Nama" required>
+        <input type="email" placeholder="Email" required>
+        <input type="tel" placeholder="Pesan" required>
+    
+          <div class="tombol">
+            <a href="#" class="yellow">Submit Form</a>
+          </div>
+        </div>
+        
+      </div>
+
+
+    <div class="footer">
+        <div class="column">
+            <ul>
+                <li>Alamat</li>
+                <li>Nomor Telpon</li>
+                <li>Email</li>
+            </ul>
+        </div>
+        <div class="column">
+            <ul>
+                <li>Beranda</li>
+                <li>Tentang Kami</li>
+                <li>Popular Destinasi</li>
+                <li>Testimoni</li>
+                <li>Paket Wisata</li>
+                <li>Contact</li>
+            </ul>
+        </div>
+        <div class="column">
+            <ul>
+                <li><i class="fa-brands fa-instagram"></i></li>
+                <li><i class="fa-brands fa-facebook"></i></li>
+                <li><i class="fa-brands fa-square-x-twitter"></i></li>
+                <li><i class="fa-brands fa-youtube"></i></li>
+                <li><i class="fa-brands fa-tiktok"></i></li>
+            </ul>
+        </div>
+        <div class="column-newsletter">
+            <h3>Newsletter</h3>
+            <p>You can trust us. We only send promo offers.</p>
+            <form>
+                <div class="button-sub">
+                   <input type="email" placeholder="Your email Address">
+                   <button type="submit">SUBSCRIBE</button>
+                </div>
+            </form>
+            
+            <div class="social-icons">
+                <i class="fa-brands fa-facebook"></i>
+                <i class="fa-brands fa-instagram"></i>
+                <i class="fa-brands fa-linkedin"></i>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
