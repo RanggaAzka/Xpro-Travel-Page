@@ -94,7 +94,7 @@ nav a.menu:hover{
     background-image:url(foto/denissa-devy-fU2Mus9qmN8-unsplash.jpg);
     background-size: cover;
     color: white;
-    padding: 650px 0;
+    padding: 600px 0;
     text-align: center;
     background-position: center;
     background-attachment: fixed;
@@ -548,6 +548,7 @@ footer {
 .column-newsletter .button-sub{
     display: flex;
     justify-content: space-between;
+    
 }
 
 .kota h3{
@@ -1110,6 +1111,7 @@ footer {
     }
 
     .kota #budget .foto{
+      
         background-size: cover;
         color: gray;
         width: 270px;
@@ -1124,6 +1126,7 @@ footer {
     }
     
     .kota #budget2 .foto{
+        
         background-size: cover;
         color: gray;
         width: 270px;
@@ -1138,6 +1141,7 @@ footer {
     }
     
     .kota #budget3 .foto{
+      
         background-size: cover;
         color: gray;
         width: 270px;
@@ -1152,6 +1156,7 @@ footer {
     }
     
     .kota #budget4 .foto{
+    
         background-size: cover;
         color: gray;
        width: 270px;
@@ -1166,6 +1171,7 @@ footer {
     }
     
     .kota #budget5 .foto{
+       
         background-size: cover;
         color: gray;
         width: 270px;
@@ -1180,6 +1186,7 @@ footer {
     }
     
     .kota #budget6 .foto{
+       
         background-size: cover;
         color: gray;
         width: 270px;
@@ -1194,6 +1201,7 @@ footer {
     }
     
     .kota #standar .foto{
+     
         background-size: cover;
         color: gray;
         width: 270px;
@@ -1208,6 +1216,7 @@ footer {
      }
     
      .kota #standar2 .foto{
+      
         background-size: cover;
         color: gray;
         width: 270px;
@@ -1222,6 +1231,7 @@ footer {
      }
     
      .kota #standar3 .foto{
+     
         background-size: cover;
         color: gray;
         width: 270px;
@@ -1236,6 +1246,7 @@ footer {
      }
     
      .kota #standar4 .foto{
+       
         background-size: cover;
         color: gray;
         width: 270px;
@@ -1250,6 +1261,7 @@ footer {
      }
     
      .kota #standar5 .foto{
+       
         background-size: cover;
         color: gray;
         width: 270px;
@@ -1264,6 +1276,7 @@ footer {
      }
     
      .kota #standar6 .foto{
+       
         background-size: cover;
         color: gray;
         width: 270px;
@@ -1278,6 +1291,7 @@ footer {
      }
     
      .kota #premium .foto{
+        
         background-size: cover;
         color: gray;
         width: 270px;
@@ -1292,6 +1306,7 @@ footer {
      }
     
      .kota #premium2 .foto{
+        
         background-size: cover;
         color: gray;
         width: 270px;
@@ -1306,6 +1321,7 @@ footer {
      }
     
      .kota #premium3 .foto{
+        
         background-size: cover;
         color: gray;
         width: 270px;
@@ -1320,6 +1336,7 @@ footer {
      }
     
      .kota #premium4 .foto{
+        
         background-size: cover;
         color: gray;
         width: 270px;
@@ -1334,6 +1351,7 @@ footer {
      }
     
      .kota #premium5 .foto{
+        
         background-size: cover;
         color: gray;
         width: 270px;
@@ -1348,6 +1366,7 @@ footer {
      }
     
      .kota #premium6 .foto{
+        
         background-size: cover;
         color: gray;
         width: 270px;
