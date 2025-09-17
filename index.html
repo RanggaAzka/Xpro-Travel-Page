@@ -3,46 +3,158 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>ExproTravel - Liburan Terbaik Bersama Keluarga</title>
+    <!-- Updated to use Tailwind CSS with custom configuration and added Google Fonts -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Manrope', 'system-ui', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#164e63',
+                        'primary-foreground': '#ffffff',
+                        secondary: '#f97316',
+                        'secondary-foreground': '#ffffff',
+                        accent: '#f97316',
+                        'accent-foreground': '#ffffff',
+                        muted: '#f1f5f9',
+                        'muted-foreground': '#475569',
+                        card: '#ecfeff',
+                        'card-foreground': '#475569',
+                        border: '#d1d5db',
+                    },
+                    backgroundImage: {
+                        'hero-pattern': "linear-gradient(rgba(22, 78, 99, 0.4), rgba(22, 78, 99, 0.4)), url('foto/denissa-devy-fU2Mus9qmN8-unsplash.jpg')",
+                        'register-pattern': "linear-gradient(rgba(22, 78, 99, 0.3), rgba(22, 78, 99, 0.3)), url('foto/awan.webp')"
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.6s ease-in-out',
+                        'slide-up': 'slideUp 0.8s ease-out',
+                        'float': 'float 3s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(30px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Enhanced custom styles with smooth animations and improved swiper styling */
+        * {
+            scroll-behavior: smooth;
+        }
+        .swiper {
+            width: 90%;
+            height: 100%;
+            padding: 20px 0;
+        }
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .swiper-slide:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        .swiper-slide img {
+            display: block;
+            width: 90%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+        .swiper-slide:hover img {
+            transform: scale(1.05);
+        }
+        .hidden {
+            display: none;
+        }
+        .glass-effect {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #164e63, #f97316);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
 </head>
-<body>
+<body class="font-sans leading-relaxed bg-white">
  
-    <nav>
+    <!-- Enhanced navigation with glass effect and improved styling -->
+    <nav class="flex w-full fixed bg-white/95 backdrop-blur-md px-8 py-4 z-50 shadow-lg border-b border-border">
         <div class="tulisan">
-            <h1>ExproTravel</h1>
+            <h1 class="text-3xl font-bold py-2 gradient-text">ExproTravel</h1>
         </div>
-        <ul>
-            <i id="menu-close" class="fa-solid fa-circle-xmark"></i>
-            <li><a href="#1" class="menu">Beranda</a></li>
-            <li><a href="#2" class="menu">Tentang Kami</a></li>
-            <li><a href="#3" class="menu">Destinasi</a></li>
-            <li><a href="#4" class="menu">Testimoni</a></li>
-            <li><a href="#5" class="menu">Paket</a></li>
+        <ul class="list-none flex px-5 py-3 justify-center ml-auto lg:ml-96 transition-all duration-600 lg:relative lg:top-0 lg:right-0 lg:bg-transparent lg:w-auto lg:h-auto lg:flex-row lg:backdrop-blur-none">
+            <i id="menu-close" class="fa-solid fa-circle-xmark hidden lg:hidden text-2xl text-white py-10 px-36"></i>
+            <li class="ml-8"><a href="#1" class="menu text-muted-foreground no-underline text-lg font-medium hover:text-primary transition-colors duration-300">Beranda</a></li>
+            <li class="ml-8"><a href="#2" class="menu text-muted-foreground no-underline text-lg font-medium hover:text-primary transition-colors duration-300">Tentang Kami</a></li>
+            <li class="ml-8"><a href="#3" class="menu text-muted-foreground no-underline text-lg font-medium hover:text-primary transition-colors duration-300">Destinasi</a></li>
+            <li class="ml-8"><a href="#4" class="menu text-muted-foreground no-underline text-lg font-medium hover:text-primary transition-colors duration-300">Testimoni</a></li>
+            <li class="ml-8"><a href="#5" class="menu text-muted-foreground no-underline text-lg font-medium hover:text-primary transition-colors duration-300">Paket</a></li>
         </ul>
-        <img id="menu-btn" src="foto/menu.png" alt="">
+        <img id="menu-btn" src="foto/menu.png" alt="" class="hidden lg:hidden">
     </nav>
 
-    <div id="1" class="hero">
-        <div class="hero-text">
-            <h1>Expro Travel</h1>
-            <p>Liburan terbaik bukanlah soal kemewahan, tetapi soal kebersamaan di tengah keluarga tercinta.</p>
-            <div class="hero-buttons">
-                <a href="#" class="leg2">PESAN SEKARANG</a>
+    <!-- Enhanced hero section with improved typography and call-to-action -->
+    <div id="1" class="hero bg-hero-pattern bg-cover bg-center bg-fixed text-white py-96 text-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-primary/20 to-primary/60"></div>
+        <div class="hero-text relative z-10 animate-fade-in">
+            <h1 class="text-7xl lg:text-4xl font-bold mb-6 animate-slide-up">Expro Travel</h1>
+            <p class="text-2xl lg:text-lg mb-12 max-w-4xl mx-auto px-4 leading-relaxed animate-slide-up">Liburan terbaik bukanlah soal kemewahan, tetapi soal kebersamaan di tengah keluarga tercinta.</p>
+            <div class="hero-buttons animate-slide-up">
+                <a href="#5" class="bg-accent hover:bg-accent/90 text-accent-foreground py-4 px-8 lg:py-3 lg:px-6 no-underline mx-2 inline-block rounded-full text-lg lg:text-base font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl animate-float">
+                    <i class="fas fa-plane mr-2"></i>PESAN SEKARANG
+                </a>
             </div>
         </div>
     </div>
 
-    <div id="2" class="tentang-kami">
-        <div class="images">
-            <img src="foto/Raja-Ampat.jpg" alt="">
+    <!-- Enhanced about section with improved layout and card design -->
+    <div id="2" class="tentang-kami flex lg:flex-col py-24 lg:py-16 px-12 lg:px-6 bg-muted">
+        <div class="images flex-1 flex justify-center bg-cover bg-center lg:w-full lg:mb-8">
+            <div class="relative overflow-hidden rounded-2xl shadow-2xl">
+                <img src="foto/Raja-Ampat.jpg" alt="Raja Ampat" class="w-full h-auto transition-transform duration-500 hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent"></div>
+            </div>
         </div>
-        <div class="text-about">
-            <h2>Tentang Kami</h2>
-            <p>Kami adalah ExproTravel sebuah tim yang berdedikasi untuk
+        <div class="text-about flex-1 p-10 lg:p-6">
+            <h2 class="text-primary text-4xl lg:text-3xl font-bold mb-6 ml-16 lg:ml-0 lg:text-center">Tentang Kami</h2>
+            <p class="text-lg lg:text-base text-muted-foreground mb-8 ml-16 lg:ml-0 leading-relaxed">
+                Kami adalah ExproTravel sebuah tim yang berdedikasi untuk
                 membantu Anda menjelajahi dunia dengan cara yang lebih mudah,
                 nyaman, dan berkesan. Dengan pengalaman bertahun-tahun di
                 industri travel, kami telah membantu ribuan pelancong 
@@ -51,384 +163,689 @@
                 Kami percaya bahwa setiap perjalanan adalah kesempatan 
                 untuk menciptakan kenangan baru, dan itulah mengapa kami
                 memastikan setiap detail direncanakan dengan sempurna.
-                Kami memahami bahwa setiap pelancong memiliki gaya 
-                dan preferensi berbeda. Dengan pendekatan personal, 
-                kami memberikan solusi perjalanan yang sesuai dengan 
-                keinginan Anda. Komitmen kami adalah memberikan 
-                layanan terbaik, mulai dari proses perencanaan 
-                hingga Anda kembali dengan senyuman puas.
             </p>
-            <a href="#klik" class="btn">More About US</a>
+            <a href="#klik" class="btn inline-block bg-secondary hover:bg-secondary/90 text-secondary-foreground no-underline py-3 px-6 rounded-full transition-all duration-300 ml-16 lg:ml-0 text-base font-semibold shadow-lg hover:shadow-xl transform hover:scale-105">
+                <i class="fas fa-arrow-right mr-2"></i>More About US
+            </a>
         </div>
     </div>
     
-    <div id="3" class="swiper mySwiper">
-        <div class="judul">
-           <h2>Popular Wisata</h2>
+    <!-- Enhanced swiper section with improved styling and animations -->
+    <div id="3" class="swiper mySwiper py-20 bg-white">
+        <div class="judul text-center mb-16">
+           <h2 class="text-5xl lg:text-3xl font-bold text-primary mb-4">Popular Wisata</h2>
+           <p class="text-lg text-muted-foreground max-w-2xl mx-auto">Jelajahi destinasi terpopuler di Indonesia dengan pengalaman tak terlupakan</p>
         </div>
         <div class="swiper-wrapper">
-          <div class="swiper-slide"> <img src="foto/jogja.webp" alt=""><h1>Yogyakarta</h1></div>
-          <div class="swiper-slide"> <img src="foto/mount-bromo-wallpapers-hd-wallpaper-preview.jpg" alt=""><h1>Bromo, Malang</h1></div>
-          <div class="swiper-slide"> <img src="foto/gwk2.jpg" alt=""><h1>Gwk, Bali</h1></div>
-          <div class="swiper-slide"> <img src="foto/pandawa2.jpg" alt=""><h1>Pantai Pandawa, Bali</h1></div>
-          <div class="swiper-slide"> <img src="foto/puncakb.jpg" alt=""><h1>Puncak, Bogor</h1></div>
-          <div class="swiper-slide"> <img src="foto/yazid-hasan-iJvx-VvTXc4-unsplash.jpg" alt=""><h1>Tangkuban Perahu, Bandung</h1></div>
+          <div class="swiper-slide bg-white"> 
+            <div class="relative overflow-hidden">
+                <img src="foto/jogja.webp" alt="Yogyakarta">
+                <div class="absolute inset-0 bg-gradient-to-t from-primary/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+            </div>
+            <h1 class="py-6 text-xl font-bold text-primary">Yogyakarta</h1>
+            <p class="text-sm text-muted-foreground px-4">Kota budaya dengan pesona sejarah yang tak terlupakan</p>
+          </div>
+          <div class="swiper-slide bg-white"> 
+            <div class="relative overflow-hidden">
+                <img src="foto/mount-bromo-wallpapers-hd-wallpaper-preview.jpg" alt="Bromo">
+                <div class="absolute inset-0 bg-gradient-to-t from-primary/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+            </div>
+            <h1 class="py-6 text-xl font-bold text-primary">Bromo, Malang</h1>
+            <p class="text-sm text-muted-foreground px-4">Keajaiban sunrise di puncak gunung berapi</p>
+          </div>
+          <div class="swiper-slide bg-white"> 
+            <div class="relative overflow-hidden">
+                <img src="foto/gwk2.jpg" alt="GWK Bali">
+                <div class="absolute inset-0 bg-gradient-to-t from-primary/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+            </div>
+            <h1 class="py-6 text-xl font-bold text-primary">Gwk, Bali</h1>
+            <p class="text-sm text-muted-foreground px-4">Monumen megah dengan pemandangan spektakuler</p>
+          </div>
+          <div class="swiper-slide bg-white"> 
+            <div class="relative overflow-hidden">
+                <img src="foto/pandawa2.jpg" alt="Pantai Pandawa">
+                <div class="absolute inset-0 bg-gradient-to-t from-primary/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+            </div>
+            <h1 class="py-6 text-xl font-bold text-primary">Pantai Pandawa, Bali</h1>
+            <p class="text-sm text-muted-foreground px-4">Pantai tersembunyi dengan pasir putih yang memukau</p>
+          </div>
+          <div class="swiper-slide bg-white"> 
+            <div class="relative overflow-hidden">
+                <img src="foto/puncakb.jpg" alt="Puncak Bogor">
+                <div class="absolute inset-0 bg-gradient-to-t from-primary/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+            </div>
+            <h1 class="py-6 text-xl font-bold text-primary">Puncak, Bogor</h1>
+            <p class="text-sm text-muted-foreground px-4">Udara sejuk pegunungan dengan pemandangan hijau</p>
+          </div>
+          <div class="swiper-slide bg-white"> 
+            <div class="relative overflow-hidden">
+                <img src="foto/yazid-hasan-iJvx-VvTXc4-unsplash.jpg" alt="Tangkuban Perahu">
+                <div class="absolute inset-0 bg-gradient-to-t from-primary/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+            </div>
+            <h1 class="py-6 text-xl font-bold text-primary">Tangkuban Perahu, Bandung</h1>
+            <p class="text-sm text-muted-foreground px-4">Legenda kawah gunung dengan keindahan alam</p>
+          </div>
         </div>
         <div class="swiper-pagination"></div>
     </div>
 
-    <div id="4" class="text-testimoni">
-        <h1>Testimoni Dari pelanggan kami </h1></div>
-         <div class="testimoni-container">
-             <div class="testimoni">
-                 <img src="foto/robert1.webp" alt="">
-                 <div class="testimoni-content">
-                     <p>"Terima kasih untuk Belitung Cantik, kerjasamanya bisa dibilang memuaskan. Liburan jadi nyaman dan aman. Semiga ke depan bisa pergi wisata ke Belitung lagi. Rekomen banget jalan2 di Belitung dengan Belitung Cantik."</p>
-                     <div class="rating">
-                         <i class="fas fa-star"></i>
-                         <i class="fas fa-star"></i>
-                         <i class="fas fa-star"></i>
-                         <i class="fas fa-star"></i>
-                         <i class="fas fa-star"></i>
-                     </div>
-                 </div>
-             </div>
-         
-             <div class="testimoni">
-                 <img src="foto/robert2.jpg" alt="">
-                 <div class="testimoni-content">
-                    <p>"Layanannya bervariasi dan bisa menyesuaikan kebutuhan pelanggan. Yang paling penting dalam proses layanannya sederhana, mudah dan respon yang cepat. Ini bentuk keramahtamahan yang original, khas belitung yg juga original. Keep up the good works.."</p>
-                     <div class="rating">
-                         <i class="fas fa-star"></i>
-                         <i class="fas fa-star"></i>
-                         <i class="fas fa-star"></i>
-                         <i class="fas fa-star"></i>
-                         <i class="fas fa-star-half-alt"></i>
-                     </div>
-                 </div>
-             </div>
-         
-             <div class="testimoni">
-                 <img src="foto/robert3.avif" alt="">
-                 <div class="testimoni-content">
-                    <p>"Dari awal nanya2 adminnya udh ramah bgt..respon jg cepat ... rental mobil matic utk 2 hari..mobil d antar ke hotel waktu yang tepat. Mobilnya jg oke..selama pemakaian ga ada penggantian. Saat mengembalikan travel belitung cantik jg siap ambil di tempat yg aku mau..tq ya travel belitung cantik"</p>
-                     <div class="rating">
-                         <i class="fas fa-star"></i>
-                         <i class="fas fa-star"></i>
-                         <i class="fas fa-star"></i>
-                         <i class="fas fa-star"></i>
-                         <i class="fas fa-star"></i>
-                     </div>
-                 </div>
-             </div>
-         
-             <div class="testimoni">
-                 <img src="foto/robet4.avif" alt="">
-                 <div class="testimoni-content">
-                    <p>"Thanks Belitung Cantik udah servis kita selama liburan di Belitung. Layanan yang bersahabat harga pantas dan pelayanan yang baik. Next time ke Belitung lagi, ga ragu deh pake jasa Belitung Cantik. Pertahankan yaa.."</p>
-                     <div class="rating">
-                         <i class="fas fa-star"></i>
-                         <i class="fas fa-star"></i>
-                         <i class="fas fa-star"></i>
-                         <i class="fas fa-star"></i>
-                         <i class="fas fa-star"></i>
-                     </div>
-                 </div>
-             </div>
+    <!-- Enhanced testimonial section with improved card design -->
+    <div id="4" class="text-testimoni text-center py-12 bg-muted">
+        <h1 class="text-4xl lg:text-3xl font-bold px-8 text-primary mb-4">Testimoni Dari Pelanggan Kami</h1>
+        <p class="text-lg text-muted-foreground mb-12">Kepuasan pelanggan adalah prioritas utama kami</p>
+    </div>
+    <div class="testimoni-container flex flex-wrap gap-8 justify-center px-8 pb-20 bg-muted">
+        <div class="testimoni flex flex-col items-center bg-white border border-border rounded-2xl p-6 w-full max-w-sm shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+            <div class="relative mb-6">
+                <img src="foto/robert1.webp" alt="Customer 1" class="w-16 h-16 rounded-full object-cover border-4 border-primary">
+                <div class="absolute -bottom-2 -right-2 bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center">
+                    <i class="fas fa-quote-left text-xs"></i>
+                </div>
+            </div>
+            <div class="testimoni-content text-center">
+                <p class="text-base text-muted-foreground mb-4 leading-relaxed italic">"Terima kasih untuk Belitung Cantik, kerjasamanya bisa dibilang memuaskan. Liburan jadi nyaman dan aman. Semoga ke depan bisa pergi wisata ke Belitung lagi. Rekomen banget jalan2 di Belitung dengan Belitung Cantik."</p>
+                <div class="rating text-accent mb-2">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <h4 class="font-semibold text-primary">Robert Anderson</h4>
+            </div>
         </div>
+    
+        <div class="testimoni flex flex-col items-center bg-white border border-border rounded-2xl p-6 w-full max-w-sm shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+            <div class="relative mb-6">
+                <img src="foto/robert2.jpg" alt="Customer 2" class="w-16 h-16 rounded-full object-cover border-4 border-primary">
+                <div class="absolute -bottom-2 -right-2 bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center">
+                    <i class="fas fa-quote-left text-xs"></i>
+                </div>
+            </div>
+            <div class="testimoni-content text-center">
+               <p class="text-base text-muted-foreground mb-4 leading-relaxed italic">"Layanannya bervariasi dan bisa menyesuaikan kebutuhan pelanggan. Yang paling penting dalam proses layanannya sederhana, mudah dan respon yang cepat. Ini bentuk keramahtamahan yang original, khas belitung yg juga original. Keep up the good works.."</p>
+                <div class="rating text-accent mb-2">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <h4 class="font-semibold text-primary">Sarah Johnson</h4>
+            </div>
+        </div>
+    
+        <div class="testimoni flex flex-col items-center bg-white border border-border rounded-2xl p-6 w-full max-w-sm shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+            <div class="relative mb-6">
+                <img src="foto/robert3.avif" alt="Customer 3" class="w-16 h-16 rounded-full object-cover border-4 border-primary">
+                <div class="absolute -bottom-2 -right-2 bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center">
+                    <i class="fas fa-quote-left text-xs"></i>
+                </div>
+            </div>
+            <div class="testimoni-content text-center">
+               <p class="text-base text-muted-foreground mb-4 leading-relaxed italic">"Dari awal nanya2 adminnya udh ramah bgt..respon jg cepat ... rental mobil matic utk 2 hari..mobil d antar ke hotel waktu yang tepat. Mobilnya jg oke..selama pemakaian ga ada penggantian. Saat mengembalikan travel belitung cantik jg siap ambil di tempat yg aku mau..tq ya travel belitung cantik"</p>
+                <div class="rating text-accent mb-2">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <h4 class="font-semibold text-primary">Michael Chen</h4>
+            </div>
+        </div>
+    
+        <div class="testimoni flex flex-col items-center bg-white border border-border rounded-2xl p-6 w-full max-w-sm shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+            <div class="relative mb-6">
+                <img src="foto/robet4.avif" alt="Customer 4" class="w-16 h-16 rounded-full object-cover border-4 border-primary">
+                <div class="absolute -bottom-2 -right-2 bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center">
+                    <i class="fas fa-quote-left text-xs"></i>
+                </div>
+            </div>
+            <div class="testimoni-content text-center">
+               <p class="text-base text-muted-foreground mb-4 leading-relaxed italic">"Thanks Belitung Cantik udah servis kita selama liburan di Belitung. Layanan yang bersahabat harga pantas dan pelayanan yang baik. Next time ke Belitung lagi, ga ragu deh pake jasa Belitung Cantik. Pertahankan yaa.."</p>
+                <div class="rating text-accent mb-2">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <h4 class="font-semibold text-primary">Lisa Williams</h4>
+            </div>
+        </div>
+   </div>
 
-    <div id="5" class="container30">
-        <h1>Destinasi Wisata</h1>
-        <div class="destinasi">
-            <button onclick="showbudget()"><p>Paket Budget</p></button>
-            <button onclick="showstandar()"><p>Paket Standar</p></button>
-            <button onclick="showpremium()"><p>Paket Premium</p></button>
+    <!-- Enhanced package section with improved button design and layout -->
+    <div id="5" class="container30 text-center py-20 bg-white">
+        <h1 class="text-4xl lg:text-3xl font-bold mb-4 text-primary">Destinasi Wisata</h1>
+        <p class="text-lg text-muted-foreground mb-12 max-w-2xl mx-auto">Pilih paket wisata yang sesuai dengan budget dan kebutuhan Anda</p>
+        <div class="destinasi flex justify-center gap-6 flex-wrap mb-12">
+            <button onclick="showbudget()" class="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+                <i class="fas fa-wallet mr-2"></i>
+                <p class="text-base inline">Paket Budget</p>
+            </button>
+            <button onclick="showstandar()" class="bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+                <i class="fas fa-star mr-2"></i>
+                <p class="text-base inline">Paket Standar</p>
+            </button>
+            <button onclick="showpremium()" class="bg-gradient-to-r from-purple-600 to-purple-800 hover:from-purple-700 hover:to-purple-900 text-white font-semibold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+                <i class="fas fa-crown mr-2"></i>
+                <p class="text-base inline">Paket Premium</p>
+            </button>
         </div>
     </div>
    
-    <div class="paket">
-        <div class="kota">
-            <div id="budget" class="leg1">
-                <div class="foto">
+    <!-- Enhanced package cards with improved design and hover effects -->
+    <div class="paket py-12 px-8 bg-muted">
+        <div class="kota grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Budget Packages -->
+            <div id="budget" class="leg1 bg-white border border-border rounded-2xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                <div class="foto bg-gradient-to-br from-primary/10 to-accent/10 h-48 rounded-xl mb-6 flex items-center justify-center">
+                    <img src="foto/pramban.jpg" class="h-full w-full" alt="">
                 </div>
-                <h3>Trip Jogja Nginep 2 Hari</h3>
-                <p>Harga 900.000</p>
-                <ul> 
-                    <li>Candi Prambanan</li>
-                    <li>Tebing Breksi</li> 
-                    <li>Hutan Pinus</li> 
-                    <li>HeHa Sky View</li>
-                </ul>    
-            </div>
-            <div id="budget2" class="leg1">
-                <div class="foto"></div>
-                <h3>Jogja 1 Hari</h3>
-                <p>Harga 480.000</p>
-                <ul>
-                    <li>Menikmati objek wisata lava tour</li>
-                    <li>menikmati objek wisata obelixx hills</li>
-                </ul>
-            </div>
-            <div id="budget3" class="leg1">
-                <div class="foto"></div>
-                <h3>Tour Jogja  3 Hari</h3>
-                <p>Harga 600.000</p>
-                <ul>
-                    <li>Mengunjungi bungker</li>
-                    <li>Mengunjungi Museum sisa harataku</li>
-                    <li>Mengunjungi candi plaosan</li>
-                </ul>
-            </div>
-            <div id="budget4" class="leg1">
-                <div class="foto"></div>
-                <h3>Paket Wisata Jogja </h3>
-                <p>Harga 560.000</p>
-                <ul>
-                    <li>Jelajah Wisata desa borobudur</li>
-                    <li>Mengunjungi bukit rhema</li>
-                </ul>
-            </div>
-            <div id="budget5" class="leg1">
-                <div class="foto">
+                <div class="flex items-center justify-between mb-4">
+                    <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">Budget</span>
+                    <div class="text-right">
+                        <p class="text-2xl font-bold text-primary">900.000</p>
+                        <p class="text-sm text-muted-foreground">per orang</p>
+                    </div>
                 </div>
-                <h3>Tour gunung bromo 1 Hari </h3>
-                <p>Harga 361.000</p>
-                <ul>
-                    <li>Menikmati tour 1 hari penuh menjelajahi bromo</li>
-                    <li>Jelajahi rute bromo dengan trekking ke spot iconik</li>
-                    <li>Mengunjungi kawah bromo</li>
+                <h3 class="text-xl font-bold mb-4 text-primary">Trip Jogja Nginep 2 Hari</h3>
+                <ul class="text-sm text-muted-foreground space-y-2 mb-6"> 
+                    <li class="flex items-center"><i class="fas fa-check text-primary mr-2"></i>Candi Prambanan</li>
+                    <li class="flex items-center"><i class="fas fa-check text-primary mr-2"></i>Tebing Breksi</li> 
+                    <li class="flex items-center"><i class="fas fa-check text-primary mr-2"></i>Hutan Pinus</li> 
+                    <li class="flex items-center"><i class="fas fa-check text-primary mr-2"></i>HeHa Sky View</li>
                 </ul>
+                <button class="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-3 rounded-full font-semibold transition-all duration-300">
+                    Pilih Paket
+                </button>    
             </div>
-            <div id="budget6" class="leg1">
-                <div class="foto">
+            
+            
+            <div id="budget2" class="leg1 bg-white border border-border rounded-2xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                <div class="foto bg-gradient-to-br from-primary/10 to-accent/10 h-48 rounded-xl mb-6 flex items-center justify-center">
+                    <img src="foto/lavatour.jpeg" class="h-full w-full" alt="">
                 </div>
-                <h3>Tour Gwk </h3>
-                <p>Harga 658.000</p>
-                <ul>
-                    <li>Mengunjungi GWK, Bali</li>
+                <div class="flex items-center justify-between mb-4">
+                    <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">Budget</span>
+                    <div class="text-right">
+                        <p class="text-2xl font-bold text-primary">480.000</p>
+                        <p class="text-sm text-muted-foreground">per orang</p>
+                    </div>
+                </div>
+                <h3 class="text-xl font-bold mb-4 text-primary">Jogja 1 Hari</h3>
+                <ul class="text-sm text-muted-foreground space-y-2 mb-6">
+                    <li class="flex items-center"><i class="fas fa-check text-primary mr-2"></i>Menikmati objek wisata lava tour</li>
+                    <li class="flex items-center"><i class="fas fa-check text-primary mr-2"></i>menikmati objek wisata obelixx hills</li>
                 </ul>
+                <button class="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-3 rounded-full font-semibold transition-all duration-300">
+                    Pilih Paket
+                </button>
             </div>
-            <div id="standar" class="leg1 hidden">
-                <div class="foto"></div> 
-                <h3>tour Kuta 3 Hari 2 Malam</h3>
-                <p>1.050.000</p>
-                <ul>
-                    <li>Mengunjungi pantai kuta </li>
-                    <li>Mengunjungi </li>
+
+
+            <div id="budget3" class="leg1 bg-white border border-border rounded-2xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                <div class="foto bg-gradient-to-br from-primary/10 to-accent/10 h-48 rounded-xl mb-6 flex items-center justify-center">
+                   <img src="foto/Patung-Garuda-Wisnu-Kencana.jpg" class="h-full w-full" alt="">
+                </div>
+                <div class="flex items-center justify-between mb-4">
+                    <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">Budget</span>
+                    <div class="text-right">
+                        <p class="text-2xl font-bold text-primary">600.000</p>
+                        <p class="text-sm text-muted-foreground">per orang</p>
+                    </div>
+                </div>
+                <h3 class="text-xl font-bold mb-4 text-primary">Tour Jogja 3 Hari</h3>
+                <ul class="text-sm text-muted-foreground space-y-2 mb-6">
+                    <li class="flex items-center"><i class="fas fa-check text-primary mr-2"></i>Mengunjungi bungker</li>
+                    <li class="flex items-center"><i class="fas fa-check text-primary mr-2"></i>Mengunjungi Museum sisa harataku</li>
+                    <li class="flex items-center"><i class="fas fa-check text-primary mr-2"></i>Mengunjungi candi plaosan</li>
                 </ul>
-                
+                <button class="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-3 rounded-full font-semibold transition-all duration-300">
+                    Pilih Paket
+                </button>
             </div>
-            <div id="standar2" class="leg1 hidden">
-                <div class="foto"></div> 
-                <h3>Tour bali 4 Hari 3 Malam</h3>
-                <p>Harga 1.200.000 </p>
-                <ul>
-                    <li>Mengunjungi pura ulun danu</li>
-                    <li>Mengunjungi pura tanah lot</li>
-                    <li>Mengunjungi water sport</li>
+
+
+            <div id="budget4" class="leg1 bg-white border border-border rounded-2xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                <div class="foto bg-gradient-to-br from-primary/10 to-accent/10 h-48 rounded-xl mb-6 flex items-center justify-center">
+                    <img src="foto/pramban.jpg" class="h-full w-full" alt="">
+                </div>
+                <div class="flex items-center justify-between mb-4">
+                    <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">Budget</span>
+                    <div class="text-right">
+                        <p class="text-2xl font-bold text-primary">560.000</p>
+                        <p class="text-sm text-muted-foreground">per orang</p>
+                    </div>
+                </div>
+                <h3 class="text-xl font-bold mb-4 text-primary">Paket Wisata Jogja</h3>
+                <ul class="text-sm text-muted-foreground space-y-2 mb-6">
+                    <li class="flex items-center"><i class="fas fa-check text-primary mr-2"></i>Jelajah Wisata desa borobudur</li>
+                    <li class="flex items-center"><i class="fas fa-check text-primary mr-2"></i>Mengunjungi bukit rhema</li>
                 </ul>
-                
+                <button class="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-3 rounded-full font-semibold transition-all duration-300">
+                    Pilih Paket
+                </button>
             </div>
-            <div id="standar3" class="leg1 hidden">
-                <div class="foto"></div> 
-                <h3>Tour bali 4 Hari 3 Malam</h3>
-                <p>Harga 1.200.000 </p>
-                <ul>
-                    <li>Mengunjungi uluwatu </li>
-                    <li>Mengunjungi Jimbaran</li>
+
+
+            <div id="budget5" class="leg1 bg-white border border-border rounded-2xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                <div class="foto bg-gradient-to-br from-primary/10 to-accent/10 h-48 rounded-xl mb-6 flex items-center justify-center">
+                    <img src="foto/bromo sunrise.png" class="h-full w-full" alt="">
+                </div>
+                <div class="flex items-center justify-between mb-4">
+                    <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">Budget</span>
+                    <div class="text-right">
+                        <p class="text-2xl font-bold text-primary">361.000</p>
+                        <p class="text-sm text-muted-foreground">per orang</p>
+                    </div>
+                </div>
+                <h3 class="text-xl font-bold mb-4 text-primary">Tour gunung bromo 1 Hari</h3>
+                <ul class="text-sm text-muted-foreground space-y-2 mb-6">
+                    <li class="flex items-center"><i class="fas fa-check text-primary mr-2"></i>Menikmati tour 1 hari penuh menjelajahi bromo</li>
+                    <li class="flex items-center"><i class="fas fa-check text-primary mr-2"></i>Jelajahi rute bromo dengan trekking ke spot iconik</li>
+                    <li class="flex items-center"><i class="fas fa-check text-primary mr-2"></i>Mengunjungi kawah bromo</li>
                 </ul>
+                <button class="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-3 rounded-full font-semibold transition-all duration-300">
+                    Pilih Paket
+                </button>
             </div>
-            <div id="standar4" class="leg1 hidden">
-                <div class="foto"></div> 
-                <h3>Tour Dieng 3 Hari 2 Malam</h3>
-                <p>Harga 1.800.000 </p>
-                <ul>
-                    <li>Telaga Menjer</li>
-                    <li>Kebun Teh Panama </li>
-                    <li>Curug Sikarim</li>
-                    <li>Khayangan Skyline</li>
-                    <li>Sigandul Vieuw</li>
+
+
+            <div id="budget6" class="leg1 bg-white border border-border rounded-2xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                <div class="foto bg-gradient-to-br from-primary/10 to-accent/10 h-48 rounded-xl mb-6 flex items-center justify-center">
+                    <img src="foto/gwk2.jpg" class="h-full w-full" alt="">
+                </div>
+                <div class="flex items-center justify-between mb-4">
+                    <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">Budget</span>
+                    <div class="text-right">
+                        <p class="text-2xl font-bold text-primary">658.000</p>
+                        <p class="text-sm text-muted-foreground">per orang</p>
+                    </div>
+                </div>
+                <h3 class="text-xl font-bold mb-4 text-primary">Tour Gwk</h3>
+                <ul class="text-sm text-muted-foreground space-y-2 mb-6">
+                    <li class="flex items-center"><i class="fas fa-check text-primary mr-2"></i>Mengunjungi GWK, Bali</li>
                 </ul>
-                
+                <button class="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-3 rounded-full font-semibold transition-all duration-300">
+                    Pilih Paket
+                </button>
             </div>
-            <div id="standar5" class="leg1 hidden">
-                <div class="foto"></div> 
-                <h3>Tour Lombok 2 Hari 1 Malam</h3>
-                <p>Harga 1.550.000 </p>
-                <ul>
-                    <li>Gili Trawangan </li>
-                    <li>Desa Adat Sade </li>
-                    <li>Pantai Mandalika</li>
+
+            <!-- Standard Packages -->
+            <div id="standar" class="leg1 hidden bg-white border border-border rounded-2xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                <div class="foto bg-gradient-to-br from-secondary/10 to-primary/10 h-48 rounded-xl mb-6 flex items-center justify-center">
+                    <img src="foto/pramban.jpg" class="h-full w-full" alt="">
+                </div>
+                <div class="flex items-center justify-between mb-4">
+                    <span class="bg-secondary/10 text-secondary px-3 py-1 rounded-full text-sm font-medium">Standard</span>
+                    <div class="text-right">
+                        <p class="text-2xl font-bold text-secondary">1.050.000</p>
+                        <p class="text-sm text-muted-foreground">per orang</p>
+                    </div>
+                </div>
+                <h3 class="text-xl font-bold mb-4 text-primary">tour Kuta 3 Hari 2 Malam</h3>
+                <ul class="text-sm text-muted-foreground space-y-2 mb-6">
+                    <li class="flex items-center"><i class="fas fa-check text-secondary mr-2"></i>Mengunjungi pantai kuta</li>
+                    <li class="flex items-center"><i class="fas fa-check text-secondary mr-2"></i>Mengunjungi</li>
                 </ul>
-                
+                <button class="w-full bg-secondary hover:bg-secondary/90 text-secondary-foreground py-3 rounded-full font-semibold transition-all duration-300">
+                    Pilih Paket
+                </button>
             </div>
-            <div id="standar6" class="leg1 hidden">
-                <div class="foto"></div> 
-                <h3>Tour Danau Toba 3 Hari 2 Malam</h3>
-                <p>Harga 1.920.000 </p>
-                <ul>
-                    <li>Siantar</li>
-                    <li>Danau Toba</li>
-                    <li>Parapat</li>
-                    <li>City Tour Medan</li>
+
+
+            <div id="standar2" class="leg1 hidden bg-white border border-border rounded-2xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                <div class="foto bg-gradient-to-br from-secondary/10 to-primary/10 h-48 rounded-xl mb-6 flex items-center justify-center">
+                    <img src="foto/pramban.jpg" class="h-full w-full" alt="">
+                </div>
+                <div class="flex items-center justify-between mb-4">
+                    <span class="bg-secondary/10 text-secondary px-3 py-1 rounded-full text-sm font-medium">Standard</span>
+                    <div class="text-right">
+                        <p class="text-2xl font-bold text-secondary">1.200.000</p>
+                        <p class="text-sm text-muted-foreground">per orang</p>
+                    </div>
+                </div>
+                <h3 class="text-xl font-bold mb-4 text-primary">Tour bali 4 Hari 3 Malam</h3>
+                <ul class="text-sm text-muted-foreground space-y-2 mb-6">
+                    <li class="flex items-center"><i class="fas fa-check text-secondary mr-2"></i>Mengunjungi pura ulun danu</li>
+                    <li class="flex items-center"><i class="fas fa-check text-secondary mr-2"></i>Mengunjungi pura tanah lot</li>
+                    <li class="flex items-center"><i class="fas fa-check text-secondary mr-2"></i>Mengunjungi water sport</li>
                 </ul>
-                
+                <button class="w-full bg-secondary hover:bg-secondary/90 text-secondary-foreground py-3 rounded-full font-semibold transition-all duration-300">
+                    Pilih Paket
+                </button>
             </div>
-            <div id="premium" class="leg1 hidden">
-                <div class="foto"></div>
-                <h3>Tour Raja Ampat 4 Hari 3 Malam</h3>
-                <p>Harga 8.200.000 </p>
-                <ul>
-                    <li>Kota Waisai</li>
-                    <li>Wayag</li>
-                    <li>Batu Wajah</li>
-                    <li>Teluk Kabui</li>
-                    <li>Kampung Serpelesi</li>
-                    <li>Batu Pensil</li>
-                    <li>Batu Lima</li>
+
+
+            <div id="standar3" class="leg1 hidden bg-white border border-border rounded-2xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                <div class="foto bg-gradient-to-br from-secondary/10 to-primary/10 h-48 rounded-xl mb-6 flex items-center justify-center">
+                    <img src="foto/pramban.jpg" class="h-full w-full" alt="">
+                </div>
+                <div class="flex items-center justify-between mb-4">
+                    <span class="bg-secondary/10 text-secondary px-3 py-1 rounded-full text-sm font-medium">Standard</span>
+                    <div class="text-right">
+                        <p class="text-2xl font-bold text-secondary">1.200.000</p>
+                        <p class="text-sm text-muted-foreground">per orang</p>
+                    </div>
+                </div>
+                <h3 class="text-xl font-bold mb-4 text-primary">Tour bali 4 Hari 3 Malam</h3>
+                <ul class="text-sm text-muted-foreground space-y-2 mb-6">
+                    <li class="flex items-center"><i class="fas fa-check text-secondary mr-2"></i>Mengunjungi uluwatu</li>
+                    <li class="flex items-center"><i class="fas fa-check text-secondary mr-2"></i>Mengunjungi Jimbaran</li>
                 </ul>
-                
+                <button class="w-full bg-secondary hover:bg-secondary/90 text-secondary-foreground py-3 rounded-full font-semibold transition-all duration-300">
+                    Pilih Paket
+                </button>
             </div>
-            <div id="premium2" class="leg1 hidden">
-                <div class="foto"></div>
-                <h3>Tour bali Lombok 10 Hari 9 Malam</h3>
-                <p>Harga 5.300.000 </p>
-                <ul>
-                    <li>Sam Poo Kong</li>
-                    <li>Bedugul</li>
-                    <li>Nusa Penida</li>
-                    <li>Pink Beach</li>
-                    <li>jimbaran</li>
+
+
+            <div id="standar4" class="leg1 hidden bg-white border border-border rounded-2xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                <div class="foto bg-gradient-to-br from-secondary/10 to-primary/10 h-48 rounded-xl mb-6 flex items-center justify-center">
+                    <img src="foto/pramban.jpg" class="h-full w-full" alt="">
+                </div>
+                <div class="flex items-center justify-between mb-4">
+                    <span class="bg-secondary/10 text-secondary px-3 py-1 rounded-full text-sm font-medium">Standard</span>
+                    <div class="text-right">
+                        <p class="text-2xl font-bold text-secondary">1.800.000</p>
+                        <p class="text-sm text-muted-foreground">per orang</p>
+                    </div>
+                </div>
+                <h3 class="text-xl font-bold mb-4 text-primary">Tour Dieng 3 Hari 2 Malam</h3>
+                <ul class="text-sm text-muted-foreground space-y-2 mb-6">
+                    <li class="flex items-center"><i class="fas fa-check text-secondary mr-2"></i>Telaga Menjer</li>
+                    <li class="flex items-center"><i class="fas fa-check text-secondary mr-2"></i>Kebun Teh Panama</li>
+                    <li class="flex items-center"><i class="fas fa-check text-secondary mr-2"></i>Curug Sikarim</li>
+                    <li class="flex items-center"><i class="fas fa-check text-secondary mr-2"></i>Khayangan Skyline</li>
+                    <li class="flex items-center"><i class="fas fa-check text-secondary mr-2"></i>Sigandul Vieuw</li>
                 </ul>
-                
+                <button class="w-full bg-secondary hover:bg-secondary/90 text-secondary-foreground py-3 rounded-full font-semibold transition-all duration-300">
+                    Pilih Paket
+                </button>
             </div>
-            <div id="premium3" class="leg1 hidden">
-                <div class="foto"></div>
-                <h3>Tour Puncak Bogor 4 Hari 3 Malam</h3>
-                <p>Harga 3.300.000 </p>
-                <ul>
-                    <li>Rainbow Slide Gunung Mas</li>
-                    <li>Jungle Water Park</li>
-                    <li>Cimory Dairyland</li>
-                    <li>Nicole s River Park</li>
+
+
+            <div id="standar5" class="leg1 hidden bg-white border border-border rounded-2xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                <div class="foto bg-gradient-to-br from-secondary/10 to-primary/10 h-48 rounded-xl mb-6 flex items-center justify-center">
+                    <i class="fas fa-island-tropical text-4xl text-secondary"></i>
+                </div>
+                <div class="flex items-center justify-between mb-4">
+                    <span class="bg-secondary/10 text-secondary px-3 py-1 rounded-full text-sm font-medium">Standard</span>
+                    <div class="text-right">
+                        <p class="text-2xl font-bold text-secondary">1.550.000</p>
+                        <p class="text-sm text-muted-foreground">per orang</p>
+                    </div>
+                </div>
+                <h3 class="text-xl font-bold mb-4 text-primary">Tour Lombok 2 Hari 1 Malam</h3>
+                <ul class="text-sm text-muted-foreground space-y-2 mb-6">
+                    <li class="flex items-center"><i class="fas fa-check text-secondary mr-2"></i>Gili Trawangan</li>
+                    <li class="flex items-center"><i class="fas fa-check text-secondary mr-2"></i>Desa Adat Sade</li>
+                    <li class="flex items-center"><i class="fas fa-check text-secondary mr-2"></i>Pantai Mandalika</li>
                 </ul>
-                
+                <button class="w-full bg-secondary hover:bg-secondary/90 text-secondary-foreground py-3 rounded-full font-semibold transition-all duration-300">
+                    Pilih Paket
+                </button>
             </div>
-            <div id="premium4" class="leg1 hidden">
-                <div class="foto"></div>
-                <h3>Tour bali 4 Hari 3 Malam</h3>
-                <p>Harga 3.800.000 </p>
-                <ul>
-                    <li></li>
-                    <li>Mengunjungi pura tanah lot</li>
-                    <li>Mengunjungi water sport</li>
+
+
+            <div id="standar6" class="leg1 hidden bg-white border border-border rounded-2xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                <div class="foto bg-gradient-to-br from-secondary/10 to-primary/10 h-48 rounded-xl mb-6 flex items-center justify-center">
+                    <i class="fas fa-lake text-4xl text-secondary"></i>
+                </div>
+                <div class="flex items-center justify-between mb-4">
+                    <span class="bg-secondary/10 text-secondary px-3 py-1 rounded-full text-sm font-medium">Standard</span>
+                    <div class="text-right">
+                        <p class="text-2xl font-bold text-secondary">1.920.000</p>
+                        <p class="text-sm text-muted-foreground">per orang</p>
+                    </div>
+                </div>
+                <h3 class="text-xl font-bold mb-4 text-primary">Tour Danau Toba 3 Hari 2 Malam</h3>
+                <ul class="text-sm text-muted-foreground space-y-2 mb-6">
+                    <li class="flex items-center"><i class="fas fa-check text-secondary mr-2"></i>Siantar</li>
+                    <li class="flex items-center"><i class="fas fa-check text-secondary mr-2"></i>Danau Toba</li>
+                    <li class="flex items-center"><i class="fas fa-check text-secondary mr-2"></i>Parapat</li>
+                    <li class="flex items-center"><i class="fas fa-check text-secondary mr-2"></i>City Tour Medan</li>
                 </ul>
-                
-            </div>                       
-            <div id="premium5" class="leg1 hidden">
-                <div class="foto"></div>
-                <h3>Tour bali 4 Hari 3 Malam</h3>
-                <p>Harga 4.500.000 </p>
-                <ul>
-                    <li>Mengunjungi pura ulun danu</li>
-                    <li>Mengunjungi pura tanah lot</li>
-                    <li>Mengunjungi water sport</li>
+                <button class="w-full bg-secondary hover:bg-secondary/90 text-secondary-foreground py-3 rounded-full font-semibold transition-all duration-300">
+                    Pilih Paket
+                </button>
+            </div>
+
+            <!-- Premium Packages -->
+            <div id="premium" class="leg1 hidden bg-white border border-border rounded-2xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                <div class="foto bg-gradient-to-br from-purple-100 to-purple-200 h-48 rounded-xl mb-6 flex items-center justify-center">
+                    <i class="fas fa-crown text-4xl text-purple-600"></i>
+                </div>
+                <div class="flex items-center justify-between mb-4">
+                    <span class="bg-purple-100 text-purple-600 px-3 py-1 rounded-full text-sm font-medium">Premium</span>
+                    <div class="text-right">
+                        <p class="text-2xl font-bold text-purple-600">8.200.000</p>
+                        <p class="text-sm text-muted-foreground">per orang</p>
+                    </div>
+                </div>
+                <h3 class="text-xl font-bold mb-4 text-primary">Tour Raja Ampat 4 Hari 3 Malam</h3>
+                <ul class="text-sm text-muted-foreground space-y-2 mb-6">
+                    <li class="flex items-center"><i class="fas fa-check text-purple-600 mr-2"></i>Kota Waisai</li>
+                    <li class="flex items-center"><i class="fas fa-check text-purple-600 mr-2"></i>Wayag</li>
+                    <li class="flex items-center"><i class="fas fa-check text-purple-600 mr-2"></i>Batu Wajah</li>
+                    <li class="flex items-center"><i class="fas fa-check text-purple-600 mr-2"></i>Teluk Kabui</li>
+                    <li class="flex items-center"><i class="fas fa-check text-purple-600 mr-2"></i>Kampung Serpelesi</li>
+                    <li class="flex items-center"><i class="fas fa-check text-purple-600 mr-2"></i>Batu Pensil</li>
+                    <li class="flex items-center"><i class="fas fa-check text-purple-600 mr-2"></i>Batu Lima</li>
                 </ul>
-                
-            </div>                 
-            <div id="premium6" class="leg1 hidden">
-                <div class="foto"></div>
-                <h3>Tour bali 4 Hari 3 Malam</h3>
-                <p>Harga 3.600.000 </p>
-                <ul>
-                    <li>Mengunjungi pura ulun danu</li>
-                    <li>Mengunjungi pura tanah lot</li>
-                    <li>Mengunjungi water sport</li>
+                <button class="w-full bg-gradient-to-r from-purple-600 to-purple-800 hover:from-purple-700 hover:to-purple-900 text-white py-3 rounded-full font-semibold transition-all duration-300">
+                    Pilih Paket
+                </button>
+            </div>
+
+
+            <div id="premium2" class="leg1 hidden bg-white border border-border rounded-2xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                <div class="foto bg-gradient-to-br from-purple-100 to-purple-200 h-48 rounded-xl mb-6 flex items-center justify-center">
+                    <i class="fas fa-gem text-4xl text-purple-600"></i>
+                </div>
+                <div class="flex items-center justify-between mb-4">
+                    <span class="bg-purple-100 text-purple-600 px-3 py-1 rounded-full text-sm font-medium">Premium</span>
+                    <div class="text-right">
+                        <p class="text-2xl font-bold text-purple-600">5.300.000</p>
+                        <p class="text-sm text-muted-foreground">per orang</p>
+                    </div>
+                </div>
+                <h3 class="text-xl font-bold mb-4 text-primary">Tour bali Lombok 10 Hari 9 Malam</h3>
+                <ul class="text-sm text-muted-foreground space-y-2 mb-6">
+                    <li class="flex items-center"><i class="fas fa-check text-purple-600 mr-2"></i>Sam Poo Kong</li>
+                    <li class="flex items-center"><i class="fas fa-check text-purple-600 mr-2"></i>Bedugul</li>
+                    <li class="flex items-center"><i class="fas fa-check text-purple-600 mr-2"></i>Nusa Penida</li>
+                    <li class="flex items-center"><i class="fas fa-check text-purple-600 mr-2"></i>Pink Beach</li>
+                    <li class="flex items-center"><i class="fas fa-check text-purple-600 mr-2"></i>jimbaran</li>
                 </ul>
-                
+                <button class="w-full bg-gradient-to-r from-purple-600 to-purple-800 hover:from-purple-700 hover:to-purple-900 text-white py-3 rounded-full font-semibold transition-all duration-300">
+                    Pilih Paket
+                </button>
+            </div>
+
+
+            <div id="premium3" class="leg1 hidden bg-white border border-border rounded-2xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                <div class="foto bg-gradient-to-br from-purple-100 to-purple-200 h-48 rounded-xl mb-6 flex items-center justify-center">
+                    <i class="fas fa-tree text-4xl text-purple-600"></i>
+                </div>
+                <div class="flex items-center justify-between mb-4">
+                    <span class="bg-purple-100 text-purple-600 px-3 py-1 rounded-full text-sm font-medium">Premium</span>
+                    <div class="text-right">
+                        <p class="text-2xl font-bold text-purple-600">3.300.000</p>
+                        <p class="text-sm text-muted-foreground">per orang</p>
+                    </div>
+                </div>
+                <h3 class="text-xl font-bold mb-4 text-primary">Tour Puncak Bogor 4 Hari 3 Malam</h3>
+                <ul class="text-sm text-muted-foreground space-y-2 mb-6">
+                    <li class="flex items-center"><i class="fas fa-check text-purple-600 mr-2"></i>Rainbow Slide Gunung Mas</li>
+                    <li class="flex items-center"><i class="fas fa-check text-purple-600 mr-2"></i>Jungle Water Park</li>
+                    <li class="flex items-center"><i class="fas fa-check text-purple-600 mr-2"></i>Cimory Dairyland</li>
+                    <li class="flex items-center"><i class="fas fa-check text-purple-600 mr-2"></i>Nicole s River Park</li>
+                </ul>
+                <button class="w-full bg-gradient-to-r from-purple-600 to-purple-800 hover:from-purple-700 hover:to-purple-900 text-white py-3 rounded-full font-semibold transition-all duration-300">
+                    Pilih Paket
+                </button>
+            </div>
+
+
+            <div id="premium4" class="leg1 hidden bg-white border border-border rounded-2xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                <div class="foto bg-gradient-to-br from-purple-100 to-purple-200 h-48 rounded-xl mb-6 flex items-center justify-center">
+                    <i class="fas fa-spa text-4xl text-purple-600"></i>
+                </div>
+                <div class="flex items-center justify-between mb-4">
+                    <span class="bg-purple-100 text-purple-600 px-3 py-1 rounded-full text-sm font-medium">Premium</span>
+                    <div class="text-right">
+                        <p class="text-2xl font-bold text-purple-600">3.800.000</p>
+                        <p class="text-sm text-muted-foreground">per orang</p>
+                    </div>
+                </div>
+                <h3 class="text-xl font-bold mb-4 text-primary">Tour bali 4 Hari 3 Malam</h3>
+                <ul class="text-sm text-muted-foreground space-y-2 mb-6">
+                    <li class="flex items-center"><i class="fas fa-check text-purple-600 mr-2"></i></li>
+                    <li class="flex items-center"><i class="fas fa-check text-purple-600 mr-2"></i>Mengunjungi pura tanah lot</li>
+                    <li class="flex items-center"><i class="fas fa-check text-purple-600 mr-2"></i>Mengunjungi water sport</li>
+                </ul>
+                <button class="w-full bg-gradient-to-r from-purple-600 to-purple-800 hover:from-purple-700 hover:to-purple-900 text-white py-3 rounded-full font-semibold transition-all duration-300">
+                    Pilih Paket
+                </button>
+            </div>
+
+
+            <div id="premium5" class="leg1 hidden bg-white border border-border rounded-2xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                <div class="foto bg-gradient-to-br from-purple-100 to-purple-200 h-48 rounded-xl mb-6 flex items-center justify-center">
+                    <i class="fas fa-cocktail text-4xl text-purple-600"></i>
+                </div>
+                <div class="flex items-center justify-between mb-4">
+                    <span class="bg-purple-100 text-purple-600 px-3 py-1 rounded-full text-sm font-medium">Premium</span>
+                    <div class="text-right">
+                        <p class="text-2xl font-bold text-purple-600">4.500.000</p>
+                        <p class="text-sm text-muted-foreground">per orang</p>
+                    </div>
+                </div>
+                <h3 class="text-xl font-bold mb-4 text-primary">Tour bali 4 Hari 3 Malam</h3>
+                <ul class="text-sm text-muted-foreground space-y-2 mb-6">
+                    <li class="flex items-center"><i class="fas fa-check text-purple-600 mr-2"></i>Mengunjungi pura ulun danu</li>
+                    <li class="flex items-center"><i class="fas fa-check text-purple-600 mr-2"></i>Mengunjungi pura tanah lot</li>
+                    <li class="flex items-center"><i class="fas fa-check text-purple-600 mr-2"></i>Mengunjungi water sport</li>
+                </ul>
+                <button class="w-full bg-gradient-to-r from-purple-600 to-purple-800 hover:from-purple-700 hover:to-purple-900 text-white py-3 rounded-full font-semibold transition-all duration-300">
+                    Pilih Paket
+                </button>
+            </div>
+
+
+            <div id="premium6" class="leg1 hidden bg-white border border-border rounded-2xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                <div class="foto bg-gradient-to-br from-purple-100 to-purple-200 h-48 rounded-xl mb-6 flex items-center justify-center">
+                    <i class="fas fa-star text-4xl text-purple-600"></i>
+                </div>
+                <div class="flex items-center justify-between mb-4">
+                    <span class="bg-purple-100 text-purple-600 px-3 py-1 rounded-full text-sm font-medium">Premium</span>
+                    <div class="text-right">
+                        <p class="text-2xl font-bold text-purple-600">3.600.000</p>
+                        <p class="text-sm text-muted-foreground">per orang</p>
+                    </div>
+                </div>
+                <h3 class="text-xl font-bold mb-4 text-primary">Tour bali 4 Hari 3 Malam</h3>
+                <ul class="text-sm text-muted-foreground space-y-2 mb-6">
+                    <li class="flex items-center"><i class="fas fa-check text-purple-600 mr-2"></i>Mengunjungi pura ulun danu</li>
+                    <li class="flex items-center"><i class="fas fa-check text-purple-600 mr-2"></i>Mengunjungi pura tanah lot</li>
+                    <li class="flex items-center"><i class="fas fa-check text-purple-600 mr-2"></i>Mengunjungi water sport</li>
+                </ul>
+                <button class="w-full bg-gradient-to-r from-purple-600 to-purple-800 hover:from-purple-700 hover:to-purple-900 text-white py-3 rounded-full font-semibold transition-all duration-300">
+                    Pilih Paket
+                </button>
             </div>
         </div>    
     </div>
-    <!-- <div class="regist">
-        <div class="form">
-            <h3>Pesan Sekarang</h3>
-            <input type="text" placeholder="name" required>
-            <input type="email" placeholder="email-id" required>
-            <input type="pesan" placeholder="Pesan" required>
 
-            <div class="btn">
-                <a href="#" class="button">Hubungi Kami</a>
+    <!-- Enhanced registration form with improved styling and layout -->
+    <div class="regist flex bg-register-pattern bg-cover bg-center bg-fixed min-h-screen justify-center items-center py-20 px-8">
+        <div class="form bg-white/95 backdrop-blur-md rounded-2xl flex flex-col p-10 shadow-2xl w-full max-w-md">
+          <div class="text-center mb-8">
+            <h3 class="text-3xl font-bold text-primary mb-2">Create Free Account NOW!</h3>
+            <p class="text-muted-foreground">Bergabunglah dengan ribuan pelanggan yang puas</p>
+          </div>
+    
+        <div class="space-y-4">
+            <div class="relative">
+                <i class="fas fa-user absolute left-4 top-1/2 transform -translate-y-1/2 text-muted-foreground"></i>
+                <input type="text" placeholder="Nama Lengkap" required class="w-full py-4 pl-12 pr-4 border border-border rounded-full outline-none text-base focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300">
+            </div>
+            <div class="relative">
+                <i class="fas fa-envelope absolute left-4 top-1/2 transform -translate-y-1/2 text-muted-foreground"></i>
+                <input type="email" placeholder="Email Address" required class="w-full py-4 pl-12 pr-4 border border-border rounded-full outline-none text-base focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300">
+            </div>
+            <div class="relative">
+                <i class="fas fa-comment absolute left-4 top-4 text-muted-foreground"></i>
+                <textarea placeholder="Pesan atau Pertanyaan" required class="w-full py-4 pl-12 pr-4 border border-border rounded-2xl outline-none text-base focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300 resize-none h-24"></textarea>
             </div>
         </div>
-    </div> -->
-
-    <div class="regist">
-        <!-- <div class="regis">
-          <p><i>Get 100 Online Courses For Free</i></p><br>
-          <h1><b>Registration To Get It</b></h1>
-        <div class="waktu">
-          <div><b>18 <br>days</b></div>
-          <div><b>23 <br>Hours</b></div>
-          <div><b>06 <br>Minutes</b></div>
-          <div><b>58 <br>Seconds</b></div>
-        </div>
-        </div> -->
-        <div class="form">
-          <h3>Create Free Account NOW!</h3>
     
-        <input type="text" placeholder="Nama" required>
-        <input type="email" placeholder="Email" required>
-        <input type="tel" placeholder="Pesan" required>
-    
-          <div class="tombol">
-            <a href="#" class="yellow">Submit Form</a>
+          <div class="mt-8">
+            <button class="w-full bg-accent hover:bg-accent/90 text-accent-foreground py-4 rounded-full font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+                <i class="fas fa-paper-plane mr-2"></i>Submit Form
+            </button>
           </div>
         </div>
-        
-      </div>
+    </div>
 
-
-    <div class="footer">
-        <div class="column">
-            <ul>
-                <li>Alamat</li>
-                <li>Nomor Telpon</li>
-                <li>Email</li>
-            </ul>
-        </div>
-        <div class="column">
-            <ul>
-                <li>Beranda</li>
-                <li>Tentang Kami</li>
-                <li>Popular Destinasi</li>
-                <li>Testimoni</li>
-                <li>Paket Wisata</li>
-                <li>Contact</li>
-            </ul>
-        </div>
-        <div class="column">
-            <ul>
-                <li><i class="fa-brands fa-instagram"></i></li>
-                <li><i class="fa-brands fa-facebook"></i></li>
-                <li><i class="fa-brands fa-square-x-twitter"></i></li>
-                <li><i class="fa-brands fa-youtube"></i></li>
-                <li><i class="fa-brands fa-tiktok"></i></li>
-            </ul>
-        </div>
-        <div class="column-newsletter">
-            <h3>Newsletter</h3>
-            <p>You can trust us. We only send promo offers.</p>
-            <form>
-                <div class="button-sub">
-                   <input type="email" placeholder="Your email Address">
-                   <button type="submit">SUBSCRIBE</button>
+    <!-- Enhanced footer with improved layout and styling -->
+    <div class="footer bg-primary text-primary-foreground py-16 px-8">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="space-y-4">
+                    <h3 class="text-xl font-bold mb-4 gradient-text">ExproTravel</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-center"><i class="fas fa-map-marker-alt mr-3 text-accent"></i>Jl. Wisata No. 123, Jakarta</li>
+                        <li class="flex items-center"><i class="fas fa-phone mr-3 text-accent"></i>+62 812-3456-7890</li>
+                        <li class="flex items-center"><i class="fas fa-envelope mr-3 text-accent"></i>info@exprotravel.com</li>
+                    </ul>
                 </div>
-            </form>
-            
-            <div class="social-icons">
-                <i class="fa-brands fa-facebook"></i>
-                <i class="fa-brands fa-instagram"></i>
-                <i class="fa-brands fa-linkedin"></i>
+                <div class="space-y-4">
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#1" class="hover:text-accent transition-colors">Beranda</a></li>
+                        <li><a href="#2" class="hover:text-accent transition-colors">Tentang Kami</a></li>
+                        <li><a href="#3" class="hover:text-accent transition-colors">Popular Destinasi</a></li>
+                        <li><a href="#4" class="hover:text-accent transition-colors">Testimoni</a></li>
+                        <li><a href="#5" class="hover:text-accent transition-colors">Paket Wisata</a></li>
+                    </ul>
+                </div>
+                <div class="space-y-4">
+                    <h4 class="text-lg font-semibold mb-4">Follow Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-accent rounded-full flex items-center justify-center hover:bg-accent/80 transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-accent rounded-full flex items-center justify-center hover:bg-accent/80 transition-colors">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-accent rounded-full flex items-center justify-center hover:bg-accent/80 transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-accent rounded-full flex items-center justify-center hover:bg-accent/80 transition-colors">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-accent rounded-full flex items-center justify-center hover:bg-accent/80 transition-colors">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="space-y-4">
+                    <h4 class="text-lg font-semibold mb-4">Newsletter</h4>
+                    <p class="text-sm mb-4">Dapatkan penawaran terbaik dan update destinasi terbaru</p>
+                    <form class="space-y-3">
+                        <input type="email" placeholder="Your email address" class="w-full py-3 px-4 rounded-full text-primary border-none outline-none">
+                        <button type="submit" class="w-full py-3 bg-accent hover:bg-accent/90 rounded-full font-semibold transition-colors">
+                            SUBSCRIBE
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="border-t border-primary-foreground/20 mt-12 pt-8 text-center">
+                <p class="text-sm">&copy; 2024 ExproTravel. All rights reserved. Made with ❤️ for Indonesian travelers.</p>
             </div>
         </div>
     </div>
